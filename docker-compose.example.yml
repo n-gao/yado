@@ -1,0 +1,13 @@
+services:
+  yado:
+    image: ghcr.io/n-gao/yado:main
+    ports:
+      - "8000:8000"
+    volumes:
+      - yado-data:/data
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:////data/yado.db
+    restart: unless-stopped
+
+volumes:
+  yado-data:
